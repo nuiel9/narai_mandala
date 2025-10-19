@@ -21,18 +21,23 @@ mkdir -p build/web && ${GODOT_BIN:-godot} --headless --path . --export-release "
 
 ### Testing
 ```bash
-# Next turn in-game: Press Enter/Space (ui_accept action)
+# Run automated tests
+${GODOT_BIN:-godot} --path . -s scripts/tests/test_runner.gd
+
+# Manual testing in-game:
+# Next turn: Press Enter/Space (ui_accept action)
 # Game runs for 8 turns maximum before game over
 ```
 
 ## Project Architecture
 
 ### Core Systems (Autoloaded Singletons)
-- **Game** (`scripts/systems/game_state.gd`) - Manages prestige, stability, and silver stats
+Load order from `project.godot`:
 - **Turn** (`scripts/systems/turn_manager.gd`) - Handles turn progression and seasonal cycles
 - **Market** (`scripts/systems/market.gd`) - Controls commodity pricing and market dynamics
-- **Events** (`scripts/systems/event_manager.gd`) - Random event system loading from JSON data
 - **Diplomacy** (`scripts/systems/diplomacy.gd`) - Faction relationship management
+- **Events** (`scripts/systems/event_manager.gd`) - Random event system loading from JSON data
+- **Game** (`scripts/systems/game_state.gd`) - Manages prestige, stability, and silver stats
 
 ### Signal-Based Communication
 The project uses Godot's signal system extensively for loose coupling:
@@ -53,14 +58,21 @@ data/
 scenes/
 ├── ui/TopBar.tscn        # HUD displaying turn, stats
 └── world/Main.tscn       # Primary game scene (entry point)
+
+scripts/
+├── systems/              # Autoloaded singleton systems
+├── tests/test_runner.gd  # Automated test suite
+├── ui/top_bar.gd        # TopBar scene controller
+└── world/main.gd        # Main scene controller
 ```
 
 ### Game Flow
 1. Main scene initializes and connects to system signals
 2. Each turn triggers market price drift and random events
 3. Events can modify faction relationships, market prices, and player stats
-4. Player advances turns with Enter/Space until 8-turn limit
-5. Game features Thai seasonal names: ต้นฝน, ปลายฝน, หนาว, ร้อน
+4. Player receives +5 silver each turn automatically
+5. Player advances turns with Enter/Space until 8-turn limit
+6. Game features Thai seasonal names: ต้นฝน, ปลายฝน, หนาว, ร้อน
 
 ### Key Variables & Ranges
 - **Prestige**: 0-999 (clamped)
