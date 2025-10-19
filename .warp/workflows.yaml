@@ -15,3 +15,31 @@ workflows:
     description: Quick commit
     command: |
       git add -A && git commit -m "snapshot: $(date '+%Y-%m-%d %H:%M')"
+
+  - name: Prompt: Combat System -> clipboard
+    description: Copy combat_system prompt to clipboard (macOS)
+    command: |
+      pbcopy < ./.warp/prompts/combat_system.txt
+      echo "Copied combat_system prompt to clipboard."
+
+  - name: Prompt: Diplomacy Panel -> clipboard
+    description: Copy diplomacy_panel prompt to clipboard (macOS)
+    command: |
+      pbcopy < ./.warp/prompts/diplomacy_panel.txt
+      echo "Copied diplomacy_panel prompt to clipboard."
+
+  - name: Prompt: Utils Money -> clipboard
+    description: Copy utils_money prompt to clipboard (macOS)
+    command: |
+      pbcopy < ./.warp/prompts/utils_money.txt
+      echo "Copied utils_money prompt to clipboard."
+
+  - name: Open Brief (TextEdit)
+    description: Open GAME_BRIEF.md in TextEdit (macOS)
+    command: |
+      open -a TextEdit ./GAME_BRIEF.md
+
+  - name: Run Tests (light)
+    description: Run lightweight console tests
+    command: |
+      ${GODOT_BIN:-godot} --path . -s scripts/tests/test_runner.gd

@@ -1,0 +1,3 @@
+Write a GDScript helper in scripts/systems/utils_money.gd:
+- function format_money(n:int) -> String that adds thousand separators and a "฿" prefix.
+- Include simple unit tests in scripts/systems/__tests__/utils_money_test.gd.

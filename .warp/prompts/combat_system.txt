@@ -1,0 +1,6 @@
+Read GAME_BRIEF.md. Create scripts/systems/combat.gd (Godot 4 GDScript):
+- Provide start_skirmish(attacker_power:int, defender_power:int, terrain:String) -> Dictionary
+- Terrain modifiers: "fort" +30%, "swamp" -20%, "plain" +0%
+- Casualties: proportional to relative power; include morale_delta for both sides
+- Emit signal skirmish_resolved(data:Dictionary) with result, casualties, morale_delta
+- Pure logic (no Nodes, no physics). Also create lightweight unit tests in scripts/systems/__tests__/combat_test.gd.

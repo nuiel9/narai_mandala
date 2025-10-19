@@ -1,0 +1,8 @@
+Read GAME_BRIEF.md. Generate:
+- scenes/ui/DiplomacyPanel.tscn
+- scripts/ui/diplomacy_panel.gd
+Requirements:
+- List factions dutch/fr/persia with favor/fear/profit values (bound to Diplomacy.gd signals)
+- Buttons: port_rights, mil_advisor, trade_privilege -> call Diplomacy.apply_treaty(type, target)
+- On changes, update TopBar via Game.stats_changed where relevant
+- Keep layout simple (VBox + HBox per faction), no custom theme needed
