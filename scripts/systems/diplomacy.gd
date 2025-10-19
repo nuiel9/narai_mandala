@@ -9,7 +9,7 @@ func get_relation(f:String) -> Dictionary: return factions.get(f, {})
 func adjust(f:String, k:String, delta:int) -> void:
     if factions.has(f) and factions[f].has(k):
         factions[f][k] = clampi(factions[f][k] + delta, 0, 100)
-        var d := factions[f]; emit_signal("relation_changed", f, d["favor"], d["fear"], d["profit"])
+        var d: Dictionary = factions[f]; emit_signal("relation_changed", f, d["favor"], d["fear"], d["profit"])
 func apply_treaty(t:String, target:String) -> void:
     match t:
         "port_rights": adjust(target,"favor",10); Game.add_prestige(1)

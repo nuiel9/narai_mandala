@@ -43,3 +43,21 @@ workflows:
     description: Run lightweight console tests
     command: |
       ${GODOT_BIN:-godot} --path . -s scripts/tests/test_runner.gd
+
+  - name: "Prompt: TileMap Map -> clipboard"
+    description: "Copy TileMap prompt to clipboard (macOS)"
+    command: |
+      pbcopy < ./.warp/prompts/tilemap_map.txt
+      echo "Copied TileMap prompt."
+
+  - name: "Prompt: Trade Panel v2 -> clipboard"
+    description: "Copy Trade Panel v2 prompt to clipboard"
+    command: |
+      pbcopy < ./.warp/prompts/trade_panel_v2.txt
+      echo "Copied Trade Panel v2 prompt."
+
+  - name: "Prompt: Save/Load (ConfigFile) -> clipboard"
+    description: "Copy Save/Load prompt to clipboard"
+    command: |
+      pbcopy < ./.warp/prompts/save_load_configfile.txt
+      echo "Copied Save/Load prompt."

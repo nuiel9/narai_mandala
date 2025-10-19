@@ -1,0 +1,19 @@
+อ่านไฟล์ GAME_BRIEF.md แล้วสร้างแผนที่แบบ TileMap:
+ไฟล์:
+- scenes/world/Map.tscn
+- scripts/world/map.gd
+
+ข้อกำหนด:
+- ใช้ Node: TileMap (Godot 4) กริด 32x32
+- ถ้ายังไม่มี TileSet ในโปรเจกต์ ให้สร้าง TileSet แบบ runtime:
+  - สร้าง ImageTexture 32x32 สีต่างกัน 3 แบบ: LAND(#2a3b2a), RIVER(#2a4d7a), CITY(#b79b4a)
+  - ใส่ลง TileSetAtlasSource เป็น tile id 0..2
+- สร้างแผนที่ 40x20 ไทล์:
+  - เติม LAND ทั้งผืน
+  - วาด RIVER แนวคดจากบนซ้ายไปล่างขวา (Perlin/simple noise)
+  - สุ่ม CITY อย่างน้อย 3 จุด (อย่าอยู่บน RIVER)
+- ให้มีฟังก์ชัน:
+  - generate(seed:int=0) -> เติมแผนที่ใหม่ (seed=0 ให้สุ่ม)
+  - world_to_tile(pos:Vector2i) และ is_water(tile:Vector2i)
+- ส่งสัญญาณ map_changed() หลัง generate เสมอ
+- นำ Map.tscn ไปอินสแตนซ์ใน Main.tscn ใต้ Node2D หลัก (ถ้ายังไม่มีให้บอกตำแหน่งที่ควรใส่)

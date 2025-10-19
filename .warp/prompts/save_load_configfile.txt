@@ -1,0 +1,18 @@
+สร้างระบบเซฟ/โหลดสถานะเกมด้วย ConfigFile:
+ไฟล์:
+- scripts/systems/save_load.gd (autoload ชื่อ SaveLoad)
+- อัปเดต project.godot ให้ Autoload ไฟล์นี้
+- เพิ่มเมธอด:
+  - save_game(path:String="user://save.cfg") -> bool
+  - load_game(path:String="user://save.cfg") -> bool
+- บันทึก/อ่านค่า:
+  - Turn.current_turn, Turn.season_index
+  - Game.prestige, Game.stability, Game.silver
+  - Diplomacy.factions (favor/fear/profit ต่อ faction)
+  - Market.prices (ราคาปัจจุบันทุก goods)
+- หลัง load_game():
+  - อัปเดตสัญญาณ: Turn.turn_advanced (ด้วยค่าปัจจุบัน), Game.stats_changed, ส่ง price_changed ให้ครบทุกรายการ
+- ใส่คีย์ลัด:
+  - save_game: Ctrl+S (Command+S บน macOS ก็รองรับ)
+  - load_game: Ctrl+L (Command+L บน macOS)
+- เพิ่มข้อความ print()/push_warning เมื่อเซฟ/โหลดสำเร็จ/ล้มเหลว

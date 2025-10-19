@@ -1,0 +1,13 @@
+อัปเกรด Market UI:
+ไฟล์:
+- scenes/ui/TradePanel.tscn
+- scripts/ui/trade_panel.gd
+
+ข้อกำหนด:
+- แสดงรายการสินค้า [rice, timber, tin, hides, sappan, silver] พร้อมราคา real-time จาก Market.price_changed
+- เพิ่มช่อง "Inventory" เก็บจำนวนของผู้เล่น (Dictionary) และมูลค่ารวม
+- ปุ่ม Buy/Sell ที่มีจำนวน (1, 5, 10) และตรวจเงิน/สต็อกก่อนทำรายการ
+- บันทึก "Transaction Log" (สูงสุด 10 บรรทัด) เช่น "Bought 5 tin @ 27 (-135)"
+- เชื่อม Game.add_silver() และอัปเดต Prestige +1 เมื่อยอดซื้อ/ขายครั้งแรกของสินค้านั้น
+- ปุ่ม "Auto-refresh Prices" (toggle) ถ้าเปิดให้กระพริบราคาเวลามี drift
+- รองรับคีย์ลัด toggle_trade (T) เปิด/ปิด

@@ -12,3 +12,12 @@ Market="*res://scripts/systems/market.gd"
 Diplomacy="*res://scripts/systems/diplomacy.gd"
 Events="*res://scripts/systems/event_manager.gd"
 Game="*res://scripts/systems/game_state.gd"
+SaveLoad="*res://scripts/systems/save_load.gd"
+
+[input]
+
+toggle_diplomacy={"deadzone":0.5,"events":[{"type":"key","keycode":68}]}
+toggle_trade={"deadzone":0.5,"events":[{"type":"key","keycode":84}]}
+next_turn={"deadzone":0.5,"events":[{"type":"key","keycode":78}]}
+save_game={"deadzone":0.5,"events":[{"type":"key","keycode":83,"ctrl_pressed":true},{"type":"key","keycode":83,"command_or_control_autoremap":true}]}
+load_game={"deadzone":0.5,"events":[{"type":"key","keycode":76,"ctrl_pressed":true},{"type":"key","keycode":76,"command_or_control_autoremap":true}]}
