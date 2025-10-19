@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/ui/top_bar.gd" id="1"]
+[node name="TopBar" type="Control"]
+anchor_right = 1.0
+offset_bottom = 48.0
+script = ExtResource("1")
+[node name="HBox" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = -16.0
+offset_bottom = 40.0
+theme_override_constants/separation = 16
+[node name="Turn" type="Label" parent="HBox"]
+text = "Turn 1 / ฤดู: ต้นฝน"
+[node name="Prestige" type="Label" parent="HBox"]
+text = "Prestige: 0"
+[node name="Stability" type="Label" parent="HBox"]
+text = "Stability: 50"
+[node name="Silver" type="Label" parent="HBox"]
+text = "Silver: 100"

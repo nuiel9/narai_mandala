@@ -1,0 +1,14 @@
+; Engine configuration file.
+config_version=5
+[application]
+config/name="Narai Mandala"
+run/main_scene="res://scenes/world/Main.tscn"
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=720
+[autoload]
+Turn="*res://scripts/systems/turn_manager.gd"
+Market="*res://scripts/systems/market.gd"
+Diplomacy="*res://scripts/systems/diplomacy.gd"
+Events="*res://scripts/systems/event_manager.gd"
+Game="*res://scripts/systems/game_state.gd"

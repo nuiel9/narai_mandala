@@ -1,0 +1,6 @@
+.import/
+.export/
+.build/
+*.tmp
+*.import
+*.translation

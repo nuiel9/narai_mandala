@@ -1,0 +1,5 @@
+{
+  "dutch": {"favor": 30, "fear": 40, "profit": 50, "traits": ["naval_power","monopoly_trade"]},
+  "fr":    {"favor": 35, "fear": 25, "profit": 40, "traits": ["fort_experts","missionaries"]},
+  "persia":{"favor": 45, "fear": 15, "profit": 55, "traits": ["merchant_network","tin_focus"]}
+}

@@ -1,0 +1,5 @@
+[
+  {"id":"ambassy_foreign","title":"ทูตจากแดนไกล","effect":"favor+10:fr,profit+5:fr;fear+5:dutch","duration":1},
+  {"id":"monsoon","title":"มรสุม","effect":"sink_chance+0.2:trade_ship","duration":1},
+  {"id":"court_rumor","title":"ข่าวลือในวัง","effect":"court_shift","duration":1}
+]

@@ -1,0 +1,17 @@
+workflows:
+  - name: New Godot Project
+    description: Init Godot project files (macOS)
+    command: |
+      ${GODOT_BIN:-godot} --headless --editor --path . --quit
+  - name: Run Game (Main Scene)
+    description: Launch main scene locally
+    command: |
+      ${GODOT_BIN:-godot} --path . scenes/world/Main.tscn
+  - name: Export Web (HTML5)
+    description: Export HTML5 build to ./build/web
+    command: |
+      mkdir -p build/web && ${GODOT_BIN:-godot} --headless --path . --export-release "Web" build/web/index.html
+  - name: Git Snapshot
+    description: Quick commit
+    command: |
+      git add -A && git commit -m "snapshot: $(date '+%Y-%m-%d %H:%M')"
